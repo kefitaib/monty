@@ -75,3 +75,18 @@ void free_all(stack_t *st)
 	}
 	exit(EXIT_FAILURE);
 }
+
+
+/**
+ * nop - do nothing.
+ * @st : first element of a double linked list.
+ * @i: lenght of the list.
+ * Return: Void.
+ *
+ */
+
+void nop(stack_t **st, unsigned int i)
+{
+	(void)i;
+	(void)st;
+}

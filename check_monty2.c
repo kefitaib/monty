@@ -45,6 +45,7 @@ void (*get_f(char *buffer))(stack_t **, unsigned int)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -124,18 +125,13 @@ int check_monty(FILE *p)
 			free_all(st);
 		}
 
-		if ((strcmp(buffer, "nop")) == 0)
-			continue;
-		else
+		func = get_f(tokens[0]);
+		if (!func)
 		{
-			func = get_f(tokens[0]);
-			if (!func)
-			{
 			fprintf(stderr, "L%u: unknown instruction %s\n", nbl, tokens[0]);
 			free_all(st);
-			}
-			func(&st, nbl);
 		}
+		func(&st, nbl);
 		free(tokens);
 	}
 	free_list(st);

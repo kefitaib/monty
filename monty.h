@@ -56,7 +56,9 @@ void pint(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
 void add(stack_t **, unsigned int);
+void nop(stack_t **, unsigned int);
 void free_list(stack_t *);
 void free_all(stack_t *);
+
 
 #endif
