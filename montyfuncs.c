@@ -11,10 +11,12 @@
 void push(stack_t **st, unsigned int i)
 {
 	stack_t *new = NULL;
+	char *t = tokens[1];
 
-	if ((*tokens[1] >= '0' && *tokens[1] <= '9') || *tokens[1] == '-')
+	if ((*t >= '0' && *t <= '9') || *t == '-')
 	{
-		if (strspn(tokens[1], "-0123456789") == strlen(tokens[1]))
+		t++;
+		if (strspn(t, "-0123456789") == strlen(t))
 		{
 			new = malloc(sizeof(stack_t));
 			if (!new)
