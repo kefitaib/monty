@@ -83,6 +83,8 @@ char **create_tokens(char *buffer, int words, stack_t *st)
 
 	while (str)
 	{
+		if (*str == '#')
+			break;
 		tokens[i++] = str;
 		str = strtok(NULL, " ");
 	}
@@ -116,7 +118,7 @@ int check_monty(FILE *p)
 		nbl++;
 		buffer[c - 1] = '\0';
 		words = word(buffer, ' ');
-		if (words == 0)
+		if (words == 0 || *buffer == '#')
 			continue;
 		tokens = create_tokens(buffer, words, st);
 		if (!tokens)
