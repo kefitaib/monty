@@ -12,26 +12,26 @@ void push(stack_t **st, unsigned int i)
 {
 	stack_t *new = NULL;
 
-	(void)i;
-
-	if (strspn(tokens[1], "0123456789") == strlen(tokens[1]))
+	if ((*tokens[1] >= '0' && *tokens[1] <= '9') || *tokens[1] == '-')
 	{
-		new = malloc(sizeof(stack_t));
-		if (!new)
+		if (strspn(tokens[1], "-0123456789") == strlen(tokens[1]))
 		{
-			fprintf(stderr, "USAGE: malloc failed\n");
-			free_all(*st);
+			new = malloc(sizeof(stack_t));
+			if (!new)
+			{
+				fprintf(stderr, "USAGE: malloc failed\n");
+				free_all(*st);
 
-		}
+			}
 
-		new->n = atoi(tokens[1]);
-		new->next = *st;
-		new->prev = NULL;
+			new->n = atoi(tokens[1]);
+			new->next = *st;
+			new->prev = NULL;
 
-		if (*st)
-			(*st)->prev = new;
+			if (*st)
+				(*st)->prev = new;
 
-		*st = new;
+		}	*st = new;
 	}
 	else
 	{
