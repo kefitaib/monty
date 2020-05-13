@@ -12,7 +12,7 @@ void add(stack_t **st, unsigned int i)
 {
 	stack_t *tmp = *st;
 
-	if ((*st)->next)
+	if (*st && (*st)->next)
 	{
 		*st = (*st)->next;
 		(*st)->n += tmp->n;
