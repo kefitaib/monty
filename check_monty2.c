@@ -116,7 +116,7 @@ int check_monty(FILE *p)
 		nbl++;
 		buffer[c - 1] = '\0';
 		words = word(buffer, ' ');
-		if (words == 0 || *buffer == '#')
+		if (words == 0)
 			continue;
 		tokens = create_tokens(buffer, words, st);
 		if (!tokens)
