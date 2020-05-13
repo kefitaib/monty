@@ -83,8 +83,6 @@ char **create_tokens(char *buffer, int words, stack_t *st)
 
 	while (str)
 	{
-		if (*str == '#')
-			break;
 		tokens[i++] = str;
 		str = strtok(NULL, " ");
 	}
