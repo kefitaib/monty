@@ -13,10 +13,16 @@ void push(stack_t **st, unsigned int i)
 	stack_t *new = NULL;
 	char *t = tokens[1];
 
+	if (tokens[2])
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", i);
+		free_all(*st);
+	}
+
 	if ((*t >= '0' && *t <= '9') || *t == '-')
 	{
 		t++;
-		if (strspn(t, "-0123456789") == strlen(t))
+		if (strspn(t, "0123456789") == strlen(t))
 		{
 			new = malloc(sizeof(stack_t));
 			if (!new)
