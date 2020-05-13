@@ -14,6 +14,12 @@ void push(stack_t **st, unsigned int i)
 	char *t = tokens[1];
 	int j;
 
+	if (!t)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", i);
+		free_all(*st);
+	}
+
 	for (j = 0; t[j]; j++)
 	{
 		if (t[0] == '-' && j == 0)
