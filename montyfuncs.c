@@ -129,7 +129,7 @@ void swap(stack_t **st, unsigned int i)
 	int x;
 
 	(void)i;
-	if ((*st)->next)
+	if (*st && (*st)->next)
 	{
 		x = (*st)->n;
 		(*st)->n = (*st)->next->n;
