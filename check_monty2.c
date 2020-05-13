@@ -124,7 +124,7 @@ int check_monty(FILE *p)
 			free_all(st);
 		}
 
-		if ((strcmp(tokens[0], "nop")) == 0)
+		if ((strcmp(buffer, "nop")) == 0)
 			continue;
 		else
 		{
