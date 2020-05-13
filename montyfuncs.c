@@ -12,40 +12,36 @@ void push(stack_t **st, unsigned int i)
 {
 	stack_t *new = NULL;
 	char *t = tokens[1];
+	int j;
 
-	if (tokens[2])
+	for (j = 0; t[j]; j++)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", i);
-		free_all(*st);
-	}
+		if (t[0] == '-' && j == 0)
+			continue;
 
-	if ((*t >= '0' && *t <= '9') || *t == '-')
-	{
-		t++;
-		if (strspn(t, "0123456789") == strlen(t))
+		else if (t[j] < '0' || t[j] > '9')
 		{
-			new = malloc(sizeof(stack_t));
-			if (!new)
-			{
-				fprintf(stderr, "USAGE: malloc failed\n");
-				free_all(*st);
-
-			}
-
-			new->n = atoi(tokens[1]);
-			new->next = *st;
-			new->prev = NULL;
-
-			if (*st)
-				(*st)->prev = new;
-
-		}	*st = new;
+			fprintf(stderr, "L%u: usage: push integer\n", i);
+			free_all(*st);
+		}
 	}
-	else
+
+	new = malloc(sizeof(stack_t));
+	if (!new)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", i);
+		fprintf(stderr, "USAGE: malloc failed\n");
 		free_all(*st);
+
 	}
+
+	new->n = atoi(tokens[1]);
+	new->next = *st;
+	new->prev = NULL;
+
+	if (*st)
+		(*st)->prev = new;
+
+	*st = new;
 }
 
 /**
