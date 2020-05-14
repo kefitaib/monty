@@ -96,3 +96,34 @@ void mod(stack_t **st, unsigned int i)
 		free_all(*st);
 	}
 }
+
+/**
+ * pchar - divides the top two elements of the stack.
+ * @st: first node of the list.
+ * @i: lenght of the list.
+ *
+ * Return: void.
+ */
+
+void pchar(stack_t **st, unsigned int i)
+{
+
+	if (*st)
+	{
+		if ((*st)->n < 0 || (*st)->n > 127)
+		{
+			fprintf(stderr, "L%u: can't pchar, value out of range\n", i);
+			free_all(*st);
+		}
+		else
+		{
+			printf("%c\n", (*st)->n);
+		}
+	}
+
+	else
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", i);
+		free_all(*st);
+	}
+}

@@ -50,6 +50,7 @@ void (*get_f(char *buffer))(stack_t **, unsigned int)
 		{"div", divy},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	int i = 0;
