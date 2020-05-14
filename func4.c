@@ -26,3 +26,20 @@ stack_t *tmp = *st;
 	}
 	printf("\n");
 }
+
+void rotl(stack_t **st, unsigned int i)
+{
+stack_t *tmp = *st;
+
+(void) i;
+
+while (tmp->next)
+tmp = tmp->next;
+
+tmp->next = *st;
+*st = (*st)->next;
+(*st)->prev = NULL;
+tmp->next->prev = tmp;
+tmp->next->next = NULL;
+
+}
