@@ -26,6 +26,13 @@ stack_t *tmp = *st;
 	}
 	printf("\n");
 }
+/**
+ * rotl - divides the top two elements of the stack.
+ * @st: first node of the list.
+ * @i: lenght of the list.
+ *
+ * Return: void.
+ */
 
 void rotl(stack_t **st, unsigned int i)
 {
@@ -33,13 +40,15 @@ stack_t *tmp = *st;
 
 (void) i;
 
+if (!tmp->next || !tmp->next->next)
+	return;
+
 while (tmp->next)
-tmp = tmp->next;
+	tmp = tmp->next;
 
 tmp->next = *st;
 *st = (*st)->next;
 (*st)->prev = NULL;
 tmp->next->prev = tmp;
 tmp->next->next = NULL;
-
 }
