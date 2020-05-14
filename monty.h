@@ -59,6 +59,6 @@ void add(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void free_list(stack_t *);
 void free_all(stack_t *);
-
+void sub(stack_t **st, unsigned int i);
 
 #endif

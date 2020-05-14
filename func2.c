@@ -90,3 +90,31 @@ void nop(stack_t **st, unsigned int i)
 	(void)i;
 	(void)st;
 }
+
+
+/**
+ * sub - dds the top two elements of the stack.
+ * @st: first node of the list.
+ * @i: lenght of the list.
+ *
+ * Return: void.
+ */
+
+void sub(stack_t **st, unsigned int i)
+{
+	stack_t *tmp = *st;
+
+	if (*st && (*st)->next)
+	{
+		*st = (*st)->next;
+		(*st)->n -= tmp->n;
+		(*st)->prev = NULL;
+		free(tmp);
+	}
+
+	else
+	{
+		fprintf(stderr, "L%u: can't sub, stack too short\n", i);
+		free_all(*st);
+	}
+}
