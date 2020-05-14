@@ -1,6 +1,7 @@
 #include "monty.h"
 
 char **tokens, *buffer = NULL;
+int SQ = 0;
 
 /**
  * word - return the number of words in a string.
@@ -99,6 +100,27 @@ char **create_tokens(char *buffer, int words, stack_t *st)
 	return (tokens);
 }
 
+/**
+ * check_type - check the type of the list.
+ *
+ * Return: 1 in success, 0 in failure.
+ */
+
+int check_type(void)
+{
+	if (strcmp(tokens[0], "stack") == 0)
+	{
+		SQ = 0;
+		return (1);
+	}
+	if (strcmp(tokens[0], "queue") == 0)
+		{
+		SQ = 1;
+		return (1);
+	}
+	return (0);
+}
+
 
 /**
  * check_monty - execute a monty file.
@@ -132,7 +154,7 @@ int check_monty(FILE *p)
 			fprintf(stderr, "USAGE: malloc failed\n");
 			free_all(st);
 		}
-		if (tokens[0][0] == '#')
+		if (tokens[0][0] == '#' || check_type() == 1)
 		{
 			free(tokens);
 			continue;

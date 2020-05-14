@@ -12,6 +12,7 @@
 
 extern char **tokens, *buffer;
 extern FILE *p;
+extern int SQ;
 
 
 /**
@@ -67,5 +68,7 @@ void pchar(stack_t **st, unsigned int i);
 void chaine(stack_t **st, unsigned int i);
 void rotl(stack_t **st, unsigned int i);
 void rotr(stack_t **st, unsigned int i);
+int check_type(void);
+void error_push(char *, stack_t **, unsigned int);
 
 #endif

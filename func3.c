@@ -127,3 +127,32 @@ void pchar(stack_t **st, unsigned int i)
 		free_all(*st);
 	}
 }
+
+
+
+/**
+ * swap - swaps the top two elements of the stack.
+ * @st: first node of the list.
+ * @i: lenght of the list.
+ *
+ * Return: void.
+ */
+
+void swap(stack_t **st, unsigned int i)
+{
+	int x;
+
+	(void)i;
+	if (*st && (*st)->next)
+	{
+		x = (*st)->n;
+		(*st)->n = (*st)->next->n;
+		(*st)->next->n = x;
+	}
+
+	else
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", i);
+		free_all(*st);
+	}
+}
