@@ -61,5 +61,6 @@ void free_list(stack_t *);
 void free_all(stack_t *);
 void sub(stack_t **st, unsigned int i);
 void divy(stack_t **st, unsigned int i);
+void mul(stack_t **st, unsigned int i);
 
 #endif
