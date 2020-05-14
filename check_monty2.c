@@ -47,6 +47,7 @@ void (*get_f(char *buffer))(stack_t **, unsigned int)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"div", divy},
 		{NULL, NULL}
 	};
 	int i = 0;
