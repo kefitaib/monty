@@ -64,6 +64,6 @@ void divy(stack_t **st, unsigned int i);
 void mul(stack_t **st, unsigned int i);
 void mod(stack_t **st, unsigned int i);
 void pchar(stack_t **st, unsigned int i);
-void chaine(stack_t **st, unsigned int i);
+/*void chaine(stack_t **st, unsigned int i);*/
 
 #endif
