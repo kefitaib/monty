@@ -124,7 +124,7 @@ int check_monty(FILE *p)
 			fprintf(stderr, "USAGE: malloc failed\n");
 			free_all(st);
 		}
-		if (*tokens[0] == '#')
+		if (tokens[0][0] == '#')
 		{
 			free(tokens);
 			continue;
