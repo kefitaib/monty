@@ -2,14 +2,14 @@
 
 
 /**
- * pstr - divides the top two elements of the stack.
+ * chaine - divides the top two elements of the stack.
  * @st: first node of the list.
  * @i: lenght of the list.
  *
  * Return: void.
  */
 
-void pstr(stack_t **st, unsigned int i)
+void chaine(stack_t **st, unsigned int i)
 {
 stack_t *tmp = *st;
 
