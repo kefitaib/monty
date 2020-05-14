@@ -12,6 +12,7 @@
 void chaine(stack_t **st, unsigned int i)
 {
 stack_t *tmp = *st;
+(void) i;
 
 	if (*st)
 	{
@@ -19,7 +20,7 @@ stack_t *tmp = *st;
 		{
 			if (tmp->n <= 0 || tmp->n > 127)
 				break;
-				printf("%c", tmp->n);
+			printf("%c", tmp->n);
 		}
 
 	}
