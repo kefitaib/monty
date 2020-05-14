@@ -69,7 +69,7 @@ stack_t *tmp = NULL;
 
 (void) i;
 
-if (!*st)
+if (!*st || !(*st)->next)
 return;
 
 tmp = *st;
