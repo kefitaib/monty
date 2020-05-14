@@ -40,9 +40,6 @@ stack_t *tmp = *st;
 
 (void) i;
 
-if (!tmp->next || !tmp->next->next)
-	return;
-
 while (tmp->next)
 	tmp = tmp->next;
 
