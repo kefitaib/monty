@@ -36,10 +36,14 @@ stack_t *tmp = *st;
 
 void rotl(stack_t **st, unsigned int i)
 {
-stack_t *tmp = *st;
+stack_t *tmp = NULL;
 
 (void) i;
 
+if (!*st)
+return;
+
+tmp = *st;
 while (tmp->next)
 	tmp = tmp->next;
 
