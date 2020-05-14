@@ -51,6 +51,7 @@ void (*get_f(char *buffer))(stack_t **, unsigned int)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	int i = 0;
