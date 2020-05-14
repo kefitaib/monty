@@ -26,6 +26,7 @@ stack_t *tmp = *st;
 	}
 	printf("\n");
 }
+
 /**
  * rotl - divides the top two elements of the stack.
  * @st: first node of the list.
@@ -52,4 +53,32 @@ tmp->next = *st;
 (*st)->prev = NULL;
 tmp->next->prev = tmp;
 tmp->next->next = NULL;
+}
+
+/**
+ * rotr - divides the top two elements of the stack.
+ * @st: first node of the list.
+ * @i: lenght of the list.
+ *
+ * Return: void.
+ */
+
+void rotr(stack_t **st, unsigned int i)
+{
+stack_t *tmp = NULL;
+
+(void) i;
+
+if (!*st)
+return;
+
+tmp = *st;
+while (tmp->next)
+	tmp = tmp->next;
+
+tmp->next = *st;
+tmp->prev->next = NULL;
+tmp->prev = NULL;
+(*st)->prev = tmp;
+*st = (*st)->prev;
 }

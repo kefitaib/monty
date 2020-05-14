@@ -66,5 +66,6 @@ void mod(stack_t **st, unsigned int i);
 void pchar(stack_t **st, unsigned int i);
 void chaine(stack_t **st, unsigned int i);
 void rotl(stack_t **st, unsigned int i);
+void rotr(stack_t **st, unsigned int i);
 
 #endif
