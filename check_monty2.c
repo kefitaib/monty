@@ -54,6 +54,8 @@ void (*get_f(char *buffer))(stack_t **, unsigned int)
 		{"pstr", chaine},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 	int i = 0;

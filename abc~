@@ -1,0 +1,8 @@
+stack
+push 10
+push 5
+pall
+queue
+push 10
+push 5
+pall

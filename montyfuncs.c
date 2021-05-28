@@ -1,5 +1,8 @@
 #include "monty.h"
 
+int x;
+
+
 /**
  * push - add a new node to the list.
  * @st: first node of the list.
@@ -10,7 +13,7 @@
 
 void push(stack_t **st, unsigned int i)
 {
-	stack_t *new = NULL;
+	stack_t *new = NULL, *tmp = NULL;
 	char *t = tokens[1];
 	int j;
 
@@ -41,6 +44,9 @@ void push(stack_t **st, unsigned int i)
 	}
 
 	new->n = atoi(tokens[1]);
+
+if (x == 0)
+{
 	new->next = *st;
 	new->prev = NULL;
 
@@ -48,6 +54,20 @@ void push(stack_t **st, unsigned int i)
 		(*st)->prev = new;
 
 	*st = new;
+}
+if (x == 1)
+{
+	tmp = *st;
+		while (tmp->next)
+		tmp = tmp->next;
+
+	tmp->next = new;	
+	new->prev = tmp;
+	new->next = NULL;
+	
+}
+
+/*printf("aaa%d\n", x);*/
 }
 
 /**

@@ -1,5 +1,6 @@
 #include "monty.h"
 
+int x;
 
 /**
  * chaine - divides the top two elements of the stack.
@@ -81,4 +82,18 @@ tmp->prev->next = NULL;
 tmp->prev = NULL;
 (*st)->prev = tmp;
 *st = (*st)->prev;
+}
+
+void stack(stack_t **st, unsigned int i)
+{
+	x = 0;
+	(void)st;
+	(void)i;
+}
+
+void queue(stack_t **st, unsigned int i)
+{
+	x = 1;
+	(void)st;
+	(void)i;
 }

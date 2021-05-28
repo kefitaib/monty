@@ -12,7 +12,7 @@
 
 extern char **tokens, *buffer;
 extern FILE *p;
-
+extern int x;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -67,5 +67,8 @@ void pchar(stack_t **st, unsigned int i);
 void chaine(stack_t **st, unsigned int i);
 void rotl(stack_t **st, unsigned int i);
 void rotr(stack_t **st, unsigned int i);
+void stack(stack_t **st, unsigned int i);
+void queue(stack_t **st, unsigned int i);
+
 
 #endif
