@@ -12,7 +12,12 @@
 
 extern char **tokens, *buffer;
 extern FILE *p;
+<<<<<<< HEAD
 extern int x;
+=======
+extern int SQ;
+
+>>>>>>> e31d0b1d85acbc4df92efc7a0f5f4026836955ea
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -67,8 +72,13 @@ void pchar(stack_t **st, unsigned int i);
 void chaine(stack_t **st, unsigned int i);
 void rotl(stack_t **st, unsigned int i);
 void rotr(stack_t **st, unsigned int i);
+<<<<<<< HEAD
 void stack(stack_t **st, unsigned int i);
 void queue(stack_t **st, unsigned int i);
 
+=======
+int check_type(void);
+void error_push(char *, stack_t **, unsigned int);
+>>>>>>> e31d0b1d85acbc4df92efc7a0f5f4026836955ea
 
 #endif

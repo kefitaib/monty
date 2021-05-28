@@ -4,6 +4,24 @@ int x;
 
 
 /**
+ * error_push - print message error and free heap.
+ * @s: message to print.
+ * @st: first node of the list.
+ * @i: lenght of the list.
+ *
+ * Return: void.
+ */
+
+void error_push(char *s, stack_t **st, unsigned int i)
+{
+	if (i > 0)
+		fprintf(stderr, "L%u: %s\n", i, s);
+	else
+		fprintf(stderr, "%s\n", s);
+	free_all(*st);
+}
+
+/**
  * push - add a new node to the list.
  * @st: first node of the list.
  * @i: lenght of the list.
@@ -13,47 +31,54 @@ int x;
 
 void push(stack_t **st, unsigned int i)
 {
+<<<<<<< HEAD
 	stack_t *new = NULL, *tmp = NULL;
+=======
+	stack_t *new = NULL, *tmp = *st;
+>>>>>>> e31d0b1d85acbc4df92efc7a0f5f4026836955ea
 	char *t = tokens[1];
 	int j;
 
 	if (!t)
-	{
-		fprintf(stderr, "L%u: usage: push integer\n", i);
-		free_all(*st);
-	}
-
+		error_push("usage: push integer", st, i);
 	for (j = 0; t[j]; j++)
 	{
 		if (t[0] == '-' && j == 0)
 			continue;
-
 		else if (t[j] < '0' || t[j] > '9')
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", i);
-			free_all(*st);
-		}
+			error_push("usage: push integer", st, i);
 	}
-
 	new = malloc(sizeof(stack_t));
 	if (!new)
-	{
-		fprintf(stderr, "USAGE: malloc failed\n");
-		free_all(*st);
-
-	}
-
+		error_push("USAGE: malloc failed", st, i);
 	new->n = atoi(tokens[1]);
+<<<<<<< HEAD
 
 if (x == 0)
 {
 	new->next = *st;
+=======
+	new->next = NULL;
+>>>>>>> e31d0b1d85acbc4df92efc7a0f5f4026836955ea
 	new->prev = NULL;
-
 	if (*st)
-		(*st)->prev = new;
-
-	*st = new;
+	{
+		if (SQ == 0)
+		{
+			new->next = *st;
+			(*st)->prev = new;
+			*st = new;
+		}
+		else
+		{
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = new;
+			new->prev = tmp;
+		}
+	}
+	else
+		*st = new;
 }
 if (x == 1)
 {
@@ -144,31 +169,4 @@ void pop(stack_t **st, unsigned int i)
 		free_all(*st);
 	}
 
-}
-
-/**
- * swap - swaps the top two elements of the stack.
- * @st: first node of the list.
- * @i: lenght of the list.
- *
- * Return: void.
- */
-
-void swap(stack_t **st, unsigned int i)
-{
-	int x;
-
-	(void)i;
-	if (*st && (*st)->next)
-	{
-		x = (*st)->n;
-		(*st)->n = (*st)->next->n;
-		(*st)->next->n = x;
-	}
-
-	else
-	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", i);
-		free_all(*st);
-	}
 }
